@@ -85,6 +85,20 @@
 			  <version>2.0.1.Final</version>
 		</dependency>
 		
+		<!-- tag::springJdbcTemplate[] -->
+	    <dependency>
+		      <groupId>org.springframework.boot</groupId>
+		      <artifactId>spring-boot-starter-jdbc</artifactId>
+	    </dependency>
+	    <!-- end::springJdbcTemplate[] -->
+	    <!-- tag::h2database[] -->
+	    <dependency>
+		      <groupId>com.h2database</groupId>
+		      <artifactId>h2</artifactId>
+		      <scope>runtime</scope>
+	    </dependency>
+	    <!-- end::h2database[] -->
+		
 	</dependencies>
 
 	<build>
