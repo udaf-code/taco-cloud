@@ -5,7 +5,7 @@ spring:
     name: tacocloud
 #end::setDatabaseName[]
 
-#  h2:
-#    console:
-#      enabled: true
-#      path: /h2-console
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
