@@ -1,11 +1,6 @@
-#tag::setDatabaseName[]
-spring:
-  datasource:
-    generate-unique-name: false
-    name: tacocloud
-#end::setDatabaseName[]
 
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+spring:
+  cassandra:
+    keyspace-name: taco_cloud
+    schema-action: recreate
+    local-datacenter: datacenter1
