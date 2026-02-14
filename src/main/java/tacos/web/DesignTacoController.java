@@ -1,7 +1,8 @@
 package tacos.web;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import javax.validation.Valid;
 
@@ -17,8 +18,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import tacos.Ingredient;
 import tacos.Ingredient.Type;
-import tacos.TacoOrder;
 import tacos.Taco;
+import tacos.TacoOrder;
+import tacos.TacoUDT;
 import tacos.data.IngredientRepository;
 
 @Controller
@@ -36,7 +38,9 @@ public class DesignTacoController {
 
   @ModelAttribute
   public void addIngredientsToModel(Model model) {
-    Iterable<Ingredient> ingredients = ingredientRepo.findAll();
+    List<Ingredient> ingredients = new ArrayList<>();
+    ingredientRepo.findAll().forEach(i -> ingredients.add(i));
+
     Type[] types = Ingredient.Type.values();
     for (Type type : types) {
       model.addAttribute(type.toString().toLowerCase(),
@@ -68,15 +72,16 @@ public class DesignTacoController {
       return "design";
     }
 
-    tacoOrder.addTaco(taco);
+    tacoOrder.addTaco(new TacoUDT(taco.getName(), taco.getIngredients()));
 
     return "redirect:/orders/current";
   }
 
   private Iterable<Ingredient> filterByType(
-      Iterable<Ingredient> ingredients, Type type) {
-    return StreamSupport.stream(ingredients.spliterator(), false)
-              .filter(i -> i.getType().equals(type))
+      List<Ingredient> ingredients, Type type) {
+    return ingredients
+              .stream()
+              .filter(x -> x.getType().equals(type))
               .collect(Collectors.toList());
   }
 
