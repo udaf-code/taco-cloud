@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TakoCloudApplicationTests {
+public class TacoCloudApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+  @Test
+  public void contextLoads() {
+  }
 
 }
