@@ -1,13 +1,13 @@
-package tacos;
+package tacos.authorization;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class TacoCloudApplicationTests {
+class AuthServerApplicationTests {
 
-  @Test
-  public void contextLoads() {
-  }
+	@Test
+	void contextLoads() {
+	}
 
 }

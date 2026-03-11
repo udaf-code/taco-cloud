@@ -10,8 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import tacos.authorization.users.UserRepository;
 import tacos.authorization.users.User;
+import tacos.authorization.users.UserRepository;
 
 @EnableWebSecurity
 public class SecurityConfig {
